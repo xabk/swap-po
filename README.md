@@ -14,7 +14,11 @@ You can change these defaults in the script itself or via command line arguments
 
 ## Usage
 
-usage: swap-po.py [-h] [-encoding [ENCODING]] [-c] [-r|-s] [filename]
+You can just drag the file onto the script and it will try to detect what it should do to the file, and use the default parameters to do it.
+
+Alternatively, you can use command line to gain more control of the process:
+
+swap-po.py [-h] [-encoding [ENCODING]] [-c] [-r|-s] [filename]
 
 Swap msgid and msgstr or restore original msgid from a swapped PO file Adds X-Swapped-PO header to swapped files Auto-
 detects swapped files via a header (X-Swapped-PO) Usage: swap-po.py filename Force restore swap-po.py -restore
