@@ -12,6 +12,10 @@ By default:
 
 You can change these defaults in the script itself or via command line arguments.
 
+## Requirements
+
+You'll need polib: `pip install polib`
+
 ## Usage
 
 You can just drag the file onto the script and it will try to detect what it should do to the file, and use the default parameters to do it.
