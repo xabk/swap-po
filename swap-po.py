@@ -2,16 +2,20 @@ from libraries.polib import POEntry
 import polib
 import argparse
 from pathlib import Path
-import re
 
+# --- DEFAULTS ---
 ENC = "utf-8-sig"  # Default encoding for PO files
-
-SRC_START = "Original source block, please don't delete and don't change: ~~~/"
-SRC_END = "/~~~ End of original source block"
 DEF_FN = 'Game.po'  # Default PO file name
 BREAK_ON_SUSPECTED_ERRORS = False
 CLR_MSGSTR = True
+
+SWAPPED_SUFFIX = '_swapped'  # Use empty string to overwrite the original file
+RESTORED_SUFFIX = '_restored'  # Use empty string to overwrite the original file
+
 WRAP = 0
+
+SRC_START = "Original source block, please don't delete and don't change: ~~~/"
+SRC_END = "/~~~ End of original source block"
 
 
 def swap(pofile: polib.POFile, clear_msgstr: bool = CLR_MSGSTR):
@@ -131,7 +135,8 @@ def main():
     )
 
     parser.add_argument(
-        'encoding',
+        '-encoding',
+        '-e',
         type=str,
         nargs='?',
         default=ENC,
@@ -145,7 +150,7 @@ def main():
         dest='clear',
         action='store_true',
         default=CLR_MSGSTR,
-        help='Use -r or -restore to restore the original source in the translated PO',
+        help='Use -c or -clear to clear msgstr in a swapped PO',
     )
 
     parser.add_argument(
@@ -153,7 +158,8 @@ def main():
         '-restore',
         dest='restore',
         action='store_true',
-        help='Use -r or -restore to restore the original source in the translated PO',
+        help='Use -r or -restore to force restore the original '
+        'source in the translated PO',
     )
 
     parser.add_argument(
@@ -204,11 +210,11 @@ def main():
     print(f'{args}. Detected task for file: {task}')
 
     if task == 'restore' or args.restore:
-        new_fn = fn_tuple[0] + '_restored.po'
+        new_fn = fn_tuple[0] + RESTORED_SUFFIX
         result = restore(pofile)
         pofile.metadata.pop('X-Swapped-PO', None)
     elif task == 'swap' or args.swap:
-        new_fn = fn_tuple[0] + '_swapped.po'
+        new_fn = fn_tuple[0] + SWAPPED_SUFFIX
         result = swap(pofile)
         pofile.metadata.update({'X-Swapped-PO': 'Swapped'})
 
