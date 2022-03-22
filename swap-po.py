@@ -9,8 +9,8 @@ DEF_FN = 'Game.po'  # Default PO file name
 BREAK_ON_SUSPECTED_ERRORS = False
 CLR_MSGSTR = True
 
-SWAPPED_SUFFIX = '_swapped'  # Use empty string to overwrite the original file
-RESTORED_SUFFIX = '_restored'  # Use empty string to overwrite the original file
+SWAPPED_SUFFIX = '_swapped.po'  # Use empty string to overwrite the original file
+RESTORED_SUFFIX = '_restored.po'  # Use empty string to overwrite the original file
 
 WRAP = 0
 
