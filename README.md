@@ -38,3 +38,48 @@ optional arguments:
   -c, -clear_msgstr     Use -c or -clear to clear msgstr in a swapped PO
   -r, -restore          Use -r or -restore to force restore the original source in the translated PO
   -s, -swap             Use -s or -swap to force swap msgid and msgstr in a PO file
+  
+  ## Examples
+  
+  By default, this:
+```
+#. Key:	1DFB985749BF3FF089CDEEAFF2FED5AF
+#. SourceLocation:	/Game/AssetPacks/.../BP_MainMenu_Functions.BP_MainMenu_Functions_C:CreateBackRequest [Script Bytecode]
+#. Debug ID:	#0046		Asset: BP_MainMenu_Functions
+#: /Game/AssetPacks/.../BP_MainMenu_Functions.BP_MainMenu_Functions_C:CreateBackRequest [Script Bytecode] ### Key: ,001DFB985749BF003FF089CDEEAFF002FED005AF
+msgctxt ",1DFB985749BF3FF089CDEEAFF2FED5AF"
+msgid "You have unapplied changes.\r\n"
+"Leave without applying?"
+msgstr "Часть изменений не сохранена.\r\n"
+"Выйти без сохранения?"
+```
+
+Becomes this:
+```
+#. Key:	1DFB985749BF3FF089CDEEAFF2FED5AF
+#. SourceLocation:	/Game/AssetPacks/.../BP_MainMenu_Functions.BP_MainMenu_Functions_C:CreateBackRequest [Script Bytecode]
+#. Debug ID:	#0046		Asset: BP_MainMenu_Functions
+#. Original source block, please don't delete and don't change: ~~~/
+#. You have unapplied changes.
+#. Leave without applying?
+#. /~~~ End of original source block
+#: /Game/AssetPacks/.../BP_MainMenu_Functions.BP_MainMenu_Functions_C:CreateBackRequest [Script Bytecode] ### Key: ,001DFB985749BF003FF089CDEEAFF002FED005AF
+msgctxt ",1DFB985749BF3FF089CDEEAFF2FED5AF"
+msgid ""
+"Часть изменений не сохранена.\r\n"
+"Выйти без сохранения?"
+msgstr ""
+```
+
+And it can be restored to this (empty translations, since we haven't added any above):
+```
+#. Key:	1DFB985749BF3FF089CDEEAFF2FED5AF
+#. SourceLocation:	/Game/AssetPacks/.../BP_MainMenu_Functions.BP_MainMenu_Functions_C:CreateBackRequest [Script Bytecode]
+#. Debug ID:	#0046		Asset: BP_MainMenu_Functions
+#: /Game/AssetPacks/.../BP_MainMenu_Functions.BP_MainMenu_Functions_C:CreateBackRequest [Script Bytecode] ### Key: ,001DFB985749BF003FF089CDEEAFF002FED005AF
+msgctxt ",1DFB985749BF3FF089CDEEAFF2FED5AF"
+msgid ""
+"You have unapplied changes.\r\n"
+"Leave without applying?"
+msgstr ""
+```
