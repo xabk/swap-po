@@ -4,16 +4,33 @@ import argparse
 from pathlib import Path
 
 # --- DEFAULTS ---
-ENC = "utf-8-sig"  # Default encoding for PO files
-DEF_FN = 'Game.po'  # Default PO file name
-BREAK_ON_SUSPECTED_ERRORS = False
+ENC = "utf-8-sig"
+# Default encoding for PO files.
+# Set to your default PO encoding to use the script with less parameters
+
+DEF_FN = 'Game.po'
+# Default PO file name.
+# Change to your default file name to use the script with less parameters
+
 CLR_MSGSTR = True
+# True = clear msgstr after swapping, preparing the file for translation
+# False = just swap, without cleaning the msgstr in the swapped file
+
+BREAK_ON_SUSPECTED_ERRORS = False
+# Suspected errors:
+# 1. Original source tags in comments in a file
+# that is being swapped -- that might mean we have the wrong file
+# 2. Lack of original source tags in a file
+# that is being restored -- that might mean we have the worng or damaged file
 
 SWAPPED_SUFFIX = '_swapped.po'  # Use empty string to overwrite the original file
 RESTORED_SUFFIX = '_restored.po'  # Use empty string to overwrite the original file
 
-WRAP = 0
+WRAP = 0  # Wrap width for saving PO files
 
+# Feel free to change these BEFORE you swap the file
+# Do not change after you've swapped the file
+# or the script won't be able to restore it
 SRC_START = "Original source block, please don't delete and don't change: ~~~/"
 SRC_END = "/~~~ End of original source block"
 
