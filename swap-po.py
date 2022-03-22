@@ -1,4 +1,3 @@
-from libraries.polib import POEntry
 import polib
 import argparse
 from pathlib import Path
