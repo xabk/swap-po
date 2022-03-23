@@ -115,8 +115,6 @@ def restore(pofile: polib.POFile):
 
         entry.msgid = line_ending.join(msgid)
 
-        msgstr = entry.msgstr
-
         # print(f'Entry msgid:   {entry.msgid}')
         # print(f'Entry msgstr:  {entry.msgstr}')
         # print(f'Entry comment: {entry.comment}')
