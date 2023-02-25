@@ -25,8 +25,13 @@ Alternatively, you can use command line to gain more control of the process:
 `swap-po.py [-h] [-encoding [ENCODING]] [-c] [-r|-s] [filename]`
 
 Swap msgid and msgstr or restore original msgid from a swapped PO file Adds X-Swapped-PO header to swapped files Auto-
-detects swapped files via a header (X-Swapped-PO) Usage: swap-po.py filename Force restore swap-po.py -restore
-filename swap-po.py -r filename Force swap swap-po.py -swap filename swap-po.py -s filename
+detects swapped files via a header (`X-Swapped-PO`)
+
+Usage: `swap-po.py filename`
+
+Force restore: `swap-po.py -restore filename` or `swap-po.py -r filename`
+
+Force swap: `swap-po.py -swap filename` or `swap-po.py -s filename`
 
 positional arguments:
 
